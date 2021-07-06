@@ -1,10 +1,3 @@
-<!--
- * @FileDescription: TODO
- * @Author: Rwenjie
- * @Date: 2021/5/3
- * @LastEditors: Modified by : Rwenjie
- * @LastEditTime: Modified time : 2021/5/3
- -->
 
 <template>
   <v-card width="100% " height="100%">

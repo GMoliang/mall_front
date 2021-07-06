@@ -52,3 +52,19 @@ export function getOrderByOid(oid) {
         },
     })
 }
+
+export function cancleOrderByUser(orderId,orderDetailIdList) {
+    return request( {
+        url: '/order/cancleOrder',
+        params:{
+            orderId
+        },
+        data: orderDetailIdList,
+        method: "post",
+        headers:{
+            'Content-Type':'application/json;charset=utf-8'
+        }
+    })
+}
+
+

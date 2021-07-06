@@ -1,10 +1,4 @@
-<!--
- * @FileDescription: TODO
- * @Author: Rwenjie
- * @Date: 2021/5/18
- * @LastEditors: Modified by : Rwenjie
- * @LastEditTime: Modified time : 2021/5/18
- -->
+
 
 <template>
     <div id="order-list" style="width: 100%;">
@@ -20,16 +14,10 @@
 
             <div style="margin: 15px 0;"></div>
            <div class="item-box" v-for="(item, id) in orderList" :key="id">
+
                <div class="item-head" style="background-color: #FFFFFF; height: 50px" >
-<!--                   <div style="width: 50px; height: 50px; padding: 10px; float: left">-->
-<!--                       <v-checkbox-->
-<!--                               style="margin: 0; padding: 0"-->
-<!--                               v-model="selected"-->
-<!--                               value="">-->
-<!--                       </v-checkbox>-->
-<!--                   </div>-->
                    <div>
-                      <span style="width: auto">订单编号：20210603{{item.order.id}}</span>
+                       <span style="width: auto">订单编号：20210111{{item.order.id}}</span>
                        <span style="width: auto">订单创建时间：{{item.order.createdTime}}</span>
                    </div>
                </div>
@@ -62,13 +50,23 @@
                    </div>
                    <div class="item-state item"  style="width: 15%">
                      <span v-if="item.order.orderStatus==1">未支付</span>
+                     <span v-else-if="item.order.orderStatus==4">取消支付</span>
                      <span v-else >已支付</span>
                    </div>
                    <div class="item-deal item"  style="width: 10%">
                      <span v-if="item.order.orderStatus==1">去支付</span>
-                     <span v-else="item.order.orderStatus==3">已发货</span>
+                     <span v-else-if="item.order.orderStatus==4">已取消支付</span>
+                     <span v-else-if="item.order.orderStatus==2">已付款</span>
+                     <span v-else-if="item.order.orderStatus==3">已发货</span>
                    </div>
                </div>
+             <div v-if="item.order.orderStatus==1" style="text-align: right">
+               <div style="display: flex;justify-content:flex-end;text-align: right">
+<!--                 <div> <span>去支付</span> </div>-->
+                 <div style="margin-left: 20px"> <el-button type="warn" size="mini" @click="cancleOrder(item)">取消订单</el-button></div>
+               </div>
+             </div>
+
            </div>
 
         </div>
@@ -78,6 +76,7 @@
 <script>
 
     import OrderListItem from "./OrderListItem";
+    import {cancleOrderByUser} from "../../../network/order";
     const cityOptions = ['上海', '北京', '广州', '深圳'];
     export default {
         name: "OrderList",
@@ -112,6 +111,18 @@
                 let checkedCount = value.length;
                 this.checkAll = checkedCount === this.cities.length;
                 this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length;
+            },
+            cancleOrder(item){
+                let orderDetailIdList=[];
+                item.orderDetailList.forEach(tmp => {
+                  orderDetailIdList.push(tmp.id)
+                })
+              console.log(orderDetailIdList);
+              cancleOrderByUser(item.order.id,orderDetailIdList).then(res=>{
+                item.order.orderStatus=4;
+
+              })
+
             }
         }
     }

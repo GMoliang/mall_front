@@ -49,6 +49,8 @@
         methods: {
           //点击分类跳转到对应的商品详情页
             handleSelect(cid3, keyPath) {
+              // console.log(cid3);
+              // console.log(keyPath);
               this.$router.push("/itemList/" + cid3)
                 console.log(cid3, keyPath);
             },

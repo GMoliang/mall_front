@@ -1,10 +1,3 @@
-/**
- * @FileDescription:
- * @Author: Rwenjie
- * @Date: 2021/5/3
- * @LastEditors: Modified by : Rwenjie
- * @LastEditTime: Modified time : 2021/5/3
- **/
 
 import {request} from "./request";
 

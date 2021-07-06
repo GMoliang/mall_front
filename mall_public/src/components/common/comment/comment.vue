@@ -11,7 +11,7 @@
           <Col :xs="4" :sm="3" :md="2" class="bl-text-center">
             <img class="user-image" width="48" height="48" v-if="item.reviewerUser.avatar"
                  :src="serverUrl + item.reviewerUser.avatar"/>
-            <img class="user-image" width="48" height="48" v-else src="assets/images/avatar.jpg" />
+            <img class="user-image" width="48" height="48" v-else :src="imgav" />
           </Col>
           <Col :xs="20" :sm="21" :md="22">
             <p>
@@ -21,10 +21,10 @@
               </small>
             </p>
             <p class="comment-content" v-html="item.content"></p>
-            <Row class="info" :gutter="20" type="flex" justify="start">
+            <Row class="info" :gutter="20" type="flex" justify="start" style="background-color:#fff!important; ">
               <Col :md="3" class="bl-cursor">
-                <span @click="replyClick(item.id,item.reviewerUser.nickName)"><Icon type="ios-chatboxes-outline"
-                                                                                    size="14"/>&nbsp;&nbsp;回复</span>
+                <span @click="replyClick(item.id,item.reviewerUser.username)">
+                  <Icon type="ios-chatboxes-outline" size="14"/>&nbsp;&nbsp;回复</span>
               </Col>
               <!--<Col :md="3" class="bl-cursor">-->
               <!--<Icon type="ios-call-outline" size="14"/>&nbsp;&nbsp;举报-->
@@ -43,13 +43,13 @@
             <Col :xs="2" :sm="2" :md="1" offset="2">
               <img class="user-image" width="24" height="24" v-if="replyItem.reviewerUser.avatar"
                    :src="serverUrl + replyItem.reviewerUser.avatar"/>
-              <img class="user-image" width="24" height="24" v-else src="assets/images/avatar.jpg"/>
+              <img class="user-image" width="24" height="24" v-else :src="imgav"/>
             </Col>
             <Col :xs="20" :sm="20" :md="21">
               <span class="nickName" v-text="replyItem.reviewerUser.username"></span> &nbsp;&nbsp;回复 &nbsp;&nbsp;
               <span class="arguedName">@{{replyItem.replyUser.username}}</span> <strong>:</strong>
               <span v-html="replyItem.content"></span>
-              <Row class="info" :gutter="20" type="flex" justify="start" style="background-color: white">
+              <Row class="info" :gutter="20" type="flex" justify="start" style="background-color: #fff!important;">
                 <Col :md="3" class="bl-cursor">
                   <span @click="replyClick(replyItem.id,replyItem.reviewerUser.username)"><Icon
                       type="ios-chatboxes-outline" size="14"/>&nbsp;&nbsp;回复</span>
@@ -89,8 +89,7 @@ import {selCommentReviewer} from "../../../network/comment";
 export default {
   data() {
     return {
-      // imgav :   require('@/assets/images/home/avatar.jpg'),
-      // mainImage:require('@/assets/images/home/niu01.png'),
+      imgav:"https://nuc-gml-bishe-oss.oss-cn-beijing.aliyuncs.com/bishe/image/avatar.jpg",
       articleId: this.$route.params.itemId,
       activeId: '', // 激活
       tips: '', // 子评论提示内容
@@ -174,7 +173,9 @@ export default {
 .user-image {
   border-radius: 50%;
 }
-
+.info{
+  background-color: #fff;
+}
 .reviewer-box {
   padding-bottom: 10px;
   .nickName, .arguedName {

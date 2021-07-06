@@ -1,10 +1,4 @@
-<!--
- * @FileDescription: TODO
- * @Author: Rwenjie
- * @Date: 2021/5/20
- * @LastEditors: Modified by : Rwenjie
- * @LastEditTime: Modified time : 2021/5/20
- -->
+
 
 <template>
     <div id="order-detail">
@@ -78,7 +72,7 @@
             },
           aliPay() {
             console.log("进入支付页面")
-            const outTradeNo="20210609"+(this.oid);
+            const outTradeNo="20210111"+(this.oid);
             console.log(outTradeNo);
             const allPrices=this.item.allPrices;
             console.log(allPrices);

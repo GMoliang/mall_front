@@ -1,10 +1,4 @@
-<!--
- * @FileDescription: TODO
- * @Author: Rwenjie
- * @Date: 2021/5/2
- * @LastEditors: Modified by : Rwenjie
- * @LastEditTime: Modified time : 2021/5/2
- -->
+
 
 <template>
     <div id="cart" style="width: 90%;margin: auto">
@@ -49,7 +43,7 @@
                                     :initNum="item.count"
                                     v-model="item.count"
                                     :min="1"
-                                    :max="item.count"/>
+                                    :max="999"/>
                             </div>
                             <!-- <input @change="numberChange(item.id)" type="text" v-model="item.temGoodsNum" min="1" class="numInput" /> -->
                             <div class="amount"  style="width: 20% ;" >{{'￥'+item.prices}}</div>
@@ -182,8 +176,12 @@
               // console.log("购物车页选择的地址"+this.addressId);
               // console.log(this.selected);
               const cartIdList=this.selected.slice(1);
-              // console.log(cartIdList);
+              console.log(cartIdList);
               createOrderByCart(cartIdList,this.addressId).then( res => {
+                //购物车删除该商品
+                // cartIdList.forEach(tmp=>{
+                //   this.deleteCartItem(tmp)
+                // })
 
                 this.$router.push("/order/detail/"+res.data)
                })

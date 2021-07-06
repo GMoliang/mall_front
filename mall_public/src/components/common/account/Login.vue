@@ -1,10 +1,4 @@
-<!--
- * @FileDescription: TODO
- * @Author: Rwenjie
- * @Date: 2021/2/25
- * @LastEditors: Modified by : Rwenjie
- * @LastEditTime: Modified time : 2021/2/25
- -->
+
 
 <template>
     <div id="login">

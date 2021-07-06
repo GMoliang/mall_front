@@ -1,10 +1,10 @@
 <template>
 <div id="alu-pay">
    <div v-if="paysStatus">
-     支付完成
+     支付
    </div>
   <div v-else>
-    支付完成
+    支付
   </div>
 
 </div>

@@ -8,13 +8,13 @@
       </el-col>-->
       <el-col :span="24" id="main">
         <el-container>
-          <el-header style="height: 52px;">
+          <el-header style="height: 52px; background:rgb(58 153 26) ;color: black">
             <main-tab-bar style=""/>
           </el-header>
           <el-main style="padding: 20px  0 0 0">
             <router-view/>
           </el-main>
-          <el-footer>Footer</el-footer>
+          <el-footer></el-footer>
         </el-container>
       </el-col>
  <!--     <el-col :span="1" > </el-col>-->

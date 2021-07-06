@@ -1,10 +1,3 @@
-<!--
- * @FileDescription: TODO
- * @Author: Rwenjie
- * @Date: 2021/5/3
- * @LastEditors: Modified by : Rwenjie
- * @LastEditTime: Modified time : 2021/5/3
- -->
 
 <template>
   <div id="order">
@@ -107,6 +100,7 @@
             getOrderList() {
             loadOrder().then( res => {
               this.orderList = res.data;
+              console.log(this.orderList);
 
               this.orderList.forEach( (tmp)=> {
                 tmp.orderDetailList.forEach( (test)=>{
@@ -137,11 +131,11 @@
         margin: 0 auto;
     }
     .order-head {
-        font-size: 16px;
-        font-weight: 700;
+        /*font-size: 16px;*/
+        /*font-weight: 700;*/
     }
     .order-menu-active {
-        color: black;
+        /*color: black;*/
 
     }
     .order-head span {

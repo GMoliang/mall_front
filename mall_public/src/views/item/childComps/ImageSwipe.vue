@@ -1,10 +1,4 @@
-<!--
- * @FileDescription: TODO
- * @Author: Rwenjie
- * @Date: 2021/5/13
- * @LastEditors: Modified by : Rwenjie
- * @LastEditTime: Modified time : 2021/5/13
- -->
+
 
 <template>
     <div id="magnifier" class="preview">

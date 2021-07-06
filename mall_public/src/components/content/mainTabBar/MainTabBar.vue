@@ -5,7 +5,8 @@
 
         <el-button class="sign-in-btn" type="text"  @click="clickToPage('/home')">
           <img  src="https://nuc-gml-bishe-oss.oss-cn-beijing.aliyuncs.com/bishe/image/homelogo.jpg"
-                style="width: 30px;hight:30px;position: absolute;top:12px"
+                style="width: 30px;hight:30px;position: absolute;top:12px; "
+
                 alt="">
           <span style="margin-left: 35px"><b>欢迎来到农销网</b></span>
         </el-button>
@@ -16,13 +17,13 @@
           <el-row :gutter="20">
             <!--搜索框-->
             <el-col :span="12" offset="7">
-              <el-input v-model="input" placeholder="请输入内容" class="search-input sec-tex">
-                <template #append>
-                  <el-button class="search-btn">
-                    <i class="el-icon-search"></i>
-                  </el-button>
-                </template>
-              </el-input>
+<!--              <el-input v-model="input" placeholder="请输入内容" class="search-input sec-tex">-->
+<!--                <template #append>-->
+<!--                  <el-button class="search-btn">-->
+<!--                    <i class="el-icon-search"></i>-->
+<!--                  </el-button>-->
+<!--                </template>-->
+<!--              </el-input>-->
             </el-col>
 
 

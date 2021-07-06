@@ -1,10 +1,4 @@
-<!--
- * @FileDescription: TODO
- * @Author: Rwenjie
- * @Date: 2021/5/13
- * @LastEditors: Modified by : Rwenjie
- * @LastEditTime: Modified time : 2021/5/13
- -->
+
 
 <template>
   <div id="goods-detail" style="margin: 0 10px">
@@ -84,11 +78,11 @@
       <div style="margin-top: 20px">
         <el-row>
 <!--          <el-col :span="4">f</el-col>-->
-          <el-col :span="10"  style="text-align: center">
+<!--          <el-col :span="10"  style="text-align: center">-->
+<!--            <el-button @click="addCart">加入购物车</el-button>-->
+<!--          </el-col>-->
+          <el-col :span="20" style="text-align: center">
             <el-button @click="addCart">加入购物车</el-button>
-          </el-col>
-          <el-col :span="10" style="text-align: center">
-            <el-button @click="purchaseNow">立即购买</el-button>
           </el-col>
         </el-row>
       </div>
@@ -122,6 +116,9 @@ export default {
     //vuex里取数据 只要token不失效 就可以一直取
     userId(){
       return this.$store.state.login.userId
+    },
+    loginState() {
+      return this.$store.state.login.loginState
     }
   },
   data() {
@@ -206,6 +203,11 @@ export default {
     },
 
     addCart() {
+      if(this.loginState==false){
+        alert("请先登录！")
+      }
+
+
       const cartItem={
           "shopId":this.spu.shopId,
           "itemId":this.spuId,

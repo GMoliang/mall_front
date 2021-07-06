@@ -1,10 +1,3 @@
-<!--
- * @FileDescription: TODO
- * @Author: Rwenjie
- * @Date: 2021/5/5
- * @LastEditors: Modified by : Rwenjie
- * @LastEditTime: Modified time : 2021/5/5
- -->
 
 <template>
   <div id="article" style="background: #F5F8FA;">

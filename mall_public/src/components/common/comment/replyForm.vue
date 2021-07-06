@@ -9,7 +9,7 @@
       </Col>
       <Col :md="3">
         <FormItem>
-          <Button class="reply-btn" type="text" @click="handleReply('replyForm')">发表评论</Button>
+          <Button class="reply-btn" style="background-color: mediumseagreen" type="text" @click="handleReply('replyForm')">发表评论</Button>
         </FormItem>
       </Col>
     </Row>

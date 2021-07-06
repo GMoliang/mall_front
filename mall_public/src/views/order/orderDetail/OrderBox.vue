@@ -1,10 +1,4 @@
-<!--
- * @FileDescription: TODO
- * @Author: Rwenjie
- * @Date: 2021/5/30
- * @LastEditors: Modified by : Rwenjie
- * @LastEditTime: Modified time : 2021/5/30
- -->
+
 
 <template>
     <div id="order-box">
@@ -28,7 +22,7 @@
             <br>
             <div class="item-head" style="background-color: #F8F8FF; height: 50px">
                 <div style="text-align: left">
-                    <span style="width: auto">订单号：20210609{{item.order.id}}</span>
+                    <span style="width: auto">订单号：20210111{{item.order.id}}</span>
                     <span style="width: auto">订单创建时间：{{item.order.createdTime}}</span>
                 </div>
             </div>

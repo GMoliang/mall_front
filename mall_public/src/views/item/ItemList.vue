@@ -37,28 +37,38 @@ export default {
   components: {
     CategoryNav
   },
-
+  watch: {
+    '$route.path': {
+      // deep: true,
+      // immediate: true,
+      handler(oldValue, newValie) {
+        this.cid3 = this.$route.params.cid3
+        this.getItemList();
+      }
+    }
+  },
   data() {
     return {
-      cid3:this.$route.params.cid3,
-      itemList: [],
+      cid3: this.$route.params.cid3,
+      itemList: []
     }
   },
   mounted() {
-
     this.getItemList()
   },
+
   methods: {
     getItemList(){
-      console.log(this.cid3);
+      // console.log("开始查列表");
+      // console.log(this.cid3);
       selectItemList(this.cid3).then( res => {
         this.itemList=res.data;
         //商品列表页展示的图片 处理图片
-        this.itemList.map((item)=>{
+        this.itemList.forEach((item)=>{
           let image=JSON.parse(item.mainImage);
           item.mainImage=image[0];
         });
-        console.log(this.itemList);
+        // console.log(this.itemList);
         //商品列表页展示的价格 添加一个spu展示的价格
         this.itemList.forEach( (tmp)=> {
           tmp.unit=tmp.skus[0].ownSpec;
@@ -74,7 +84,7 @@ export default {
   },
   created() {
 
-  },
+  }
 
 
 }

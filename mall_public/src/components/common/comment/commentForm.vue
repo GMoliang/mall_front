@@ -2,10 +2,10 @@
   <!--评论表单-->
   <Form ref="commentForm" :model="commentForm" :rules="commentFormRule">
     <FormItem prop="content" style="margin-bottom: 10px!important;">
-      <Input v-model="commentForm.content" type="textarea" :autosize="{minRows: 5,maxRows: 5}" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></Input>
+      <Input v-model="commentForm.content" type="textarea" :autosize="{minRows: 5,maxRows: 5}" placeholder=""></Input>
     </FormItem>
     <FormItem>
-      <Button style="float: right"  @click="handleReviewer('commentForm')">发表评论</Button>
+      <Button style="float: right"  @click="handleReviewer('commentForm')" >发表评论</Button>
     </FormItem>
   </Form>
 </template>
